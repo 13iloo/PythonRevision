@@ -184,3 +184,84 @@
 # else:
 #     print("Tails")
 
+
+# import random
+# names_string = input("Give me names_string everybody's names, seperated by a comma.")
+
+# names = names_string.split(",") 
+
+# # index = random.randint(0,len(names)-1)
+# # print(f"{names[index]} is going to buy the meal today!")
+
+# personwhowillpay = random.choice(names)
+# print(personwhowillpay+ " is going to buy the meal today!")
+
+
+# row1 = ["📦","📦","📦"]
+# row2 = ["📦","📦","📦"]
+# row3 = ["📦","📦","📦"]
+# map =[ row1,row2 ,row3]
+# print (f"{row1}\n{row2}\n{row3} " )
+# position = input("do you want to put the key?")
+# column = int(position[0])-1
+# row = int(position[1])-1
+
+# print(row)
+# treasure = "🔑"
+# map[row][column]= treasure
+# print (f"{row1}\n{row2}\n{row3} " )
+
+
+# import random
+
+# rock = "🪨rock"
+# paper = "📜paper"
+# scissors = "✂️scissors"
+# list = [rock,paper,scissors]
+# player_input = input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.")
+# if 0 <= int(player_input) <= 2:
+#     print("u lost")
+#     player_choice = list[int(player_input)]
+#     computers_choice = random.choice(list)
+#     print(f"u chose \n{player_choice}\ncomputer chose\n{computers_choice}\n")
+#     if player_choice == "🪨rock" and computers_choice == "✂️scissors":
+#         print("u won")
+#     elif player_choice == "✂️scissors" and computers_choice == "📜paper":
+#         print("u won")
+#     elif player_choice == "📜paper" and computers_choice == "🪨rock":
+#         print("u won")
+#     elif player_choice == computers_choice :
+#         print("draw")
+#     else:
+#         print("u lost")
+# else:
+#     print("u lost")
+
+
+# student_heights = input("lnput a list of student heights").split()
+# sum = 0
+# for n in range(0, len(student_heights)):
+#     student_heights[n] = int(student_heights[n])
+#     sum += student_heights[n]
+# avg = sum/len(student_heights)
+# print(round(avg,0))
+
+# student_scores = input("lnput a list of student scores").split()
+# max = 0
+# for n in range(0, len(student_scores)):
+#     student_scores[n] = int(student_scores[n])
+#     if student_scores[n] > max:
+#         max = student_scores[n]
+# print(max)
+
+# add 1 to 100 
+# sum = 0
+# for n in range(1,101):
+#     sum += n
+# print(sum)
+
+# add evens 2 to 100 
+# sum = 0
+# for n in range(2,101,2):
+#     sum += n
+# print(sum)
