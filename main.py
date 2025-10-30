@@ -265,3 +265,61 @@
 # for n in range(2,101,2):
 #     sum += n
 # print(sum)
+
+
+# fizzbuzz
+# for n in range(1,101):
+#     if n%3 == 0 and n%5 == 0:
+#         n= "fizzbuzz"
+#     elif n%3 == 0:
+#         n= "fizz"
+#     elif n%5 == 0:
+#         n= "buzz"
+#     print(n)
+
+
+
+# Password Generator 💻
+# import random
+# import string
+# print("Welcome to the Password Generator!")
+# # Ask user for input
+# letters_count = int(input("How many letters would you like in your password?\n"))
+# symbols_count = int(input("How many symbols would you like?\n"))
+# numbers_count = int(input("How many numbers would you like?\n"))
+
+# # Create character pools
+# letters = list(string.ascii_letters)
+# symbols = list("!@#$%^&*()_+{}[];:,.<>?")
+# numbers = list(string.digits)
+
+# # Pick random characters
+# password_list = []
+
+# for _ in range(letters_count):
+#     password_list.append(random.choice(letters))
+
+# for _ in range(symbols_count):
+#     password_list.append(random.choice(symbols))
+
+# for _ in range(numbers_count):
+#     password_list.append(random.choice(numbers))
+
+# # Shuffle and join
+# random.shuffle(password_list)
+# password = "".join(password_list)
+
+# print(f"\nYour generated password is: {password}")
+
+
+# list = "dsfdfs,dgsdgsdg".split(",")
+# list = (".").join(list)
+# print(list)
+
+# x=1
+# for n in range(0,x):        # use this if u wanna do something with the every list or range iteration 
+#     print("sjdfsljdfslkf")
+
+# while x<3:
+#     print("sjdfsljdfslkf")
+#     x+=1
