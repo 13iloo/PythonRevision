@@ -323,3 +323,50 @@
 # while x<3:
 #     print("sjdfsljdfslkf")
 #     x+=1
+
+
+import random
+import string
+
+letters = list(string.ascii_letters.lower())
+password_list = []
+for _ in range(4):
+    password_list.append(random.choice(letters))
+    
+show_this = []
+print(password_list)
+hidden_word = password_list
+for n in hidden_word:
+    show_this.append("_") 
+
+trials = 6
+i = 6
+# given_word = input("write a letter")
+
+def check():
+    match = False
+
+    for n in range(0, len(hidden_word)):
+        if given_word == hidden_word[n]:
+            show_this[n] = hidden_word[n]
+            match = True
+        
+    return match
+
+
+while trials >0:
+    given_word = input("write a letter:  ")
+        
+    check()
+    print(check())
+    if check()==False:
+        trials -= 1
+    print(trials)
+    print(" ".join(show_this))
+    if "_" not in show_this:
+        print("You win." )
+        break 
+
+
+if trials == 0:
+    print("hanged!!")
