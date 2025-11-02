@@ -372,15 +372,29 @@
 #     print("hanged!!")
 
 # Function
-import math
-test_h = int(input("What is the height of the wall?"))
-test_w = int(input("What is the weight of the wall?"))
-coverage = 5
+# import math
+# test_h = int(input("What is the height of the wall?"))
+# test_w = int(input("What is the weight of the wall?"))
+# coverage = 5
 
-num_cans = 0
+# num_cans = 0
 
-def paint_calc(height,weight,cover):
-    num_cans  = (height* weight)/cover
-    print(f"You ll need {math.ceil(num_cans)} cans of paint")
+# def paint_calc(height,weight,cover):
+#     num_cans  = (height* weight)/cover
+#     print(f"You ll need {math.ceil(num_cans)} cans of paint")
  
-paint_calc(height=test_h,weight=test_w,cover=coverage)
+# paint_calc(height=test_h,weight=test_w,cover=coverage)
+
+
+#prime number checker
+num = int(input("insert the number: "))
+def prime_num_checker(num):
+    is_prime = True
+    for i in range(2, num):
+        if num%i == 0:
+            is_prime = False
+    if is_prime:
+        print("Its a prime number")
+    else:
+        print("Its not a prime number")
+prime_num_checker(num)
