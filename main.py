@@ -325,48 +325,62 @@
 #     x+=1
 
 
-import random
-import string
+# import random
+# import string
 
-letters = list(string.ascii_letters.lower())
-password_list = []
-for _ in range(4):
-    password_list.append(random.choice(letters))
+# letters = list(string.ascii_letters.lower())
+# password_list = []
+# for _ in range(4):
+#     password_list.append(random.choice(letters))
     
-show_this = []
-print(password_list)
-hidden_word = password_list
-for n in hidden_word:
-    show_this.append("_") 
+# show_this = []
+# print(password_list)
+# hidden_word = password_list
+# for n in hidden_word:
+#     show_this.append("_") 
 
-trials = 6
-i = 6
-# given_word = input("write a letter")
+# trials = 6
+# i = 6
+# # given_word = input("write a letter")
 
-def check():
-    match = False
+# def check():
+#     match = False
 
-    for n in range(0, len(hidden_word)):
-        if given_word == hidden_word[n]:
-            show_this[n] = hidden_word[n]
-            match = True
+#     for n in range(0, len(hidden_word)):
+#         if given_word == hidden_word[n]:
+#             show_this[n] = hidden_word[n]
+#             match = True
         
-    return match
+#     return match
 
 
-while trials >0:
-    given_word = input("write a letter:  ")
+# while trials >0:
+#     given_word = input("write a letter:  ")
         
-    check()
-    print(check())
-    if check()==False:
-        trials -= 1
-    print(trials)
-    print(" ".join(show_this))
-    if "_" not in show_this:
-        print("You win." )
-        break 
+#     check()
+#     print(check())
+#     if check()==False:
+#         trials -= 1
+#     print(trials)
+#     print(" ".join(show_this))
+#     if "_" not in show_this:
+#         print("You win." )
+#         break 
 
 
-if trials == 0:
-    print("hanged!!")
+# if trials == 0:
+#     print("hanged!!")
+
+# Function
+import math
+test_h = int(input("What is the height of the wall?"))
+test_w = int(input("What is the weight of the wall?"))
+coverage = 5
+
+num_cans = 0
+
+def paint_calc(height,weight,cover):
+    num_cans  = (height* weight)/cover
+    print(f"You ll need {math.ceil(num_cans)} cans of paint")
+ 
+paint_calc(height=test_h,weight=test_w,cover=coverage)
