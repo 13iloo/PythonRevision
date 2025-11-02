@@ -4,3 +4,4 @@ console.log(num.length)
 // alert (x.length)
 console.log((num/26))
 console.log("")
+myObject = {name:"kdjfskjfh",job : "teacher",}

@@ -404,13 +404,13 @@
 
 # import string
 
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 # print(letters[-26-1])
 # # list(string.ascii_letters)
 
-direction= input("Type 'encode' to encrypt,type 'decode' to decrypt: ")
-text= input("Type your message:")
-shift =int(input("Type the shift number:"))
+# direction= input("Type 'encode' to encrypt,type 'decode' to decrypt: ")
+# text= input("Type your message:")
+# shift =int(input("Type the shift number:"))
 
 # def encrypt(text,shift,direction):
 #     text_list = list(text)
@@ -491,3 +491,25 @@ shift =int(input("Type the shift number:"))
 #     print(f" the {direction}d word is :{final_word}")
 
 # caeser(text,shift,direction)
+
+
+
+# Dictionaries
+# student_scores = {
+#     "Harry":81,
+#     "Ron":78,
+#     "Hermione":99,
+#     "Draco":74,
+#     "Neville":62,
+# }
+
+# for student in student_scores:
+#     if student_scores[student]>90:
+#         student_scores[student] = "Outstanding"    
+#     elif student_scores[student]<=90 and student_scores[student] > 80:
+#         student_scores[student] = "Exceeds expectation"    
+#     elif student_scores[student]<=80 and student_scores[student] > 70:
+#         student_scores[student] = "Acceptable"    
+#     elif student_scores[student] < 70:
+#         student_scores[student] = "Fail"
+# print(student_scores)
