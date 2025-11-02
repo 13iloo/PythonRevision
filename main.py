@@ -387,14 +387,100 @@
 
 
 #prime number checker
-num = int(input("insert the number: "))
-def prime_num_checker(num):
-    is_prime = True
-    for i in range(2, num):
-        if num%i == 0:
-            is_prime = False
-    if is_prime:
-        print("Its a prime number")
-    else:
-        print("Its not a prime number")
-prime_num_checker(num)
+# num = int(input("insert the number: "))
+# def prime_num_checker(num):
+#     is_prime = True
+#     for i in range(2, num):
+#         if num%i == 0:
+#             is_prime = False
+#     if is_prime:
+#         print("Its a prime number")
+#     else:
+#         print("Its not a prime number")
+# prime_num_checker(num)
+
+
+#Caesar Cipher Part 1 - Encryption
+
+# import string
+
+# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+# print(letters[-26-1])
+# # list(string.ascii_letters)
+
+# direction= input("Type 'encode' to encrypt,type 'decode' to decrypt: ")
+# text= input("Type your message:")
+# shift =int(input("Type the shift number:"))
+
+# def encrypt(text,shift,direction):
+#     text_list = list(text)
+#     final_encrypted_word = ""
+#     for n in text_list:
+#         encrypted_word = []
+#         position = letters.index(n)
+#         new_position = position + shift
+#         # while new_position>25:
+#         if position <=25:
+#             new_position = new_position % 26
+#         else:
+#             new_position = (new_position % 26) +26
+#                 # break
+#             # print(new_position)
+#         new_letter = letters[new_position]
+
+#         encrypted_word.append(new_letter)
+#         final_encrypted_word += "".join(encrypted_word)    
+#     print(f" the encrypted word is {final_encrypted_word}")
+#     return final_encrypted_word
+
+
+# def decrypt(text,shift,direction):
+#     text_list = list(text)
+
+#     final_decrypted_word = ""
+#     for n in text_list:
+#         decrypted_word = []
+#         position = letters.index(n)
+#         new_position = position - shift
+#         # while new_position>51:
+#         if position <=25:
+#             new_position = new_position % 26
+#         else:
+#             new_position = (new_position % 26) +26
+#                 # break
+#             # print(new_position)
+#         new_letter = letters[new_position]
+
+#         decrypted_word.append(new_letter)
+#         final_decrypted_word += "".join(decrypted_word)    
+#     print(f" the decrypted word is {final_decrypted_word}")
+
+
+# # encrypt(text,shift,direction)
+# # decrypt(encrypt(text,shift,direction),shift,direction)
+
+
+# def caeser(text,shift,direction):
+#     final_word = ""
+#     text_list = list(text)
+#     for n in text_list:
+#         transformed_word = []
+#         position = letters.index(n)
+#         if direction=="decode":
+#             new_position = position - shift
+#         else:
+#             new_position = position + shift
+#         # while new_position>51:
+#         if position <=25:
+#             new_position = new_position % 26
+#         else:
+#             new_position = (new_position % 26) +26
+#                 # break
+#             # print(new_position)
+#         new_letter = letters[new_position]
+
+#         transformed_word.append(new_letter)
+#         final_word += "".join(transformed_word)    
+#     print(f" the decrypted word is {final_word}")
+
+# caeser(text,shift,direction)
