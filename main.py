@@ -50,7 +50,6 @@
 #     print("it is odd")
 
 
-
 # elif
 # height = float(input("what is your height(m): "))
 # weight = float(input("what is your weight: "))
@@ -72,7 +71,6 @@
 # print(f"{round(BMI,2)}")
 
 
-
 # nested if
 # year = int(input("Which year do you want to check?"))
 
@@ -86,8 +84,6 @@
 #         print("it is a leap year")
 # else:
 #     print("not a leap year")
-
-
 
 
 # print("Welcome to Python Pizza Deliveries! ")
@@ -123,10 +119,10 @@
 #         print("Child tickets are $5." )
 #     elif age < 18:
 #         bill = 7
-#         print("Youth tickets are $7." ) 
+#         print("Youth tickets are $7." )
 #     elif age >= 45 & age <= 55:
 #         bill = 0
-#         print("Your tickets are free." ) 
+#         print("Your tickets are free." )
 #     else:
 #         bill = 12
 #         print("Adult tickets are $12." )
@@ -188,7 +184,7 @@
 # import random
 # names_string = input("Give me names_string everybody's names, seperated by a comma.")
 
-# names = names_string.split(",") 
+# names = names_string.split(",")
 
 # # index = random.randint(0,len(names)-1)
 # # print(f"{names[index]} is going to buy the meal today!")
@@ -254,13 +250,13 @@
 #         max = student_scores[n]
 # print(max)
 
-# add 1 to 100 
+# add 1 to 100
 # sum = 0
 # for n in range(1,101):
 #     sum += n
 # print(sum)
 
-# add evens 2 to 100 
+# add evens 2 to 100
 # sum = 0
 # for n in range(2,101,2):
 #     sum += n
@@ -276,7 +272,6 @@
 #     elif n%5 == 0:
 #         n= "buzz"
 #     print(n)
-
 
 
 # Password Generator 💻
@@ -317,7 +312,7 @@
 # print(list)
 
 # x=1
-# for n in range(0,x):        # use this if u wanna do something with the every list or range iteration 
+# for n in range(0,x):        # use this if u wanna do something with the every list or range iteration
 #     print("sjdfsljdfslkf")
 
 # while x<3:
@@ -332,12 +327,12 @@
 # password_list = []
 # for _ in range(4):
 #     password_list.append(random.choice(letters))
-    
+
 # show_this = []
 # print(password_list)
 # hidden_word = password_list
 # for n in hidden_word:
-#     show_this.append("_") 
+#     show_this.append("_")
 
 # trials = 6
 # i = 6
@@ -350,13 +345,13 @@
 #         if given_word == hidden_word[n]:
 #             show_this[n] = hidden_word[n]
 #             match = True
-        
+
 #     return match
 
 
 # while trials >0:
 #     given_word = input("write a letter:  ")
-        
+
 #     check()
 #     print(check())
 #     if check()==False:
@@ -365,7 +360,7 @@
 #     print(" ".join(show_this))
 #     if "_" not in show_this:
 #         print("You win." )
-#         break 
+#         break
 
 
 # if trials == 0:
@@ -382,11 +377,11 @@
 # def paint_calc(height,weight,cover):
 #     num_cans  = (height* weight)/cover
 #     print(f"You ll need {math.ceil(num_cans)} cans of paint")
- 
+
 # paint_calc(height=test_h,weight=test_w,cover=coverage)
 
 
-#prime number checker
+# prime number checker
 # num = int(input("insert the number: "))
 # def prime_num_checker(num):
 #     is_prime = True
@@ -400,7 +395,7 @@
 # prime_num_checker(num)
 
 
-#Caesar Cipher Part 1 - Encryption
+# Caesar Cipher Part 1 - Encryption
 
 # import string
 
@@ -429,7 +424,7 @@
 #         new_letter = letters[new_position]
 
 #         encrypted_word.append(new_letter)
-#         final_encrypted_word += "".join(encrypted_word)    
+#         final_encrypted_word += "".join(encrypted_word)
 #     print(f" the encrypted word is {final_encrypted_word}")
 #     return final_encrypted_word
 
@@ -452,7 +447,7 @@
 #         new_letter = letters[new_position]
 
 #         decrypted_word.append(new_letter)
-#         final_decrypted_word += "".join(decrypted_word)    
+#         final_decrypted_word += "".join(decrypted_word)
 #     print(f" the decrypted word is {final_decrypted_word}")
 
 
@@ -482,7 +477,7 @@
 #             new_letter = letters[new_position]
 
 #             transformed_word.append(new_letter)
-#             final_word += "".join(transformed_word) 
+#             final_word += "".join(transformed_word)
 #         else:
 #             new_letter = n
 
@@ -491,7 +486,6 @@
 #     print(f" the {direction}d word is :{final_word}")
 
 # caeser(text,shift,direction)
-
 
 
 # Dictionaries
@@ -505,11 +499,52 @@
 
 # for student in student_scores:
 #     if student_scores[student]>90:
-#         student_scores[student] = "Outstanding"    
+#         student_scores[student] = "Outstanding"
 #     elif student_scores[student]<=90 and student_scores[student] > 80:
-#         student_scores[student] = "Exceeds expectation"    
+#         student_scores[student] = "Exceeds expectation"
 #     elif student_scores[student]<=80 and student_scores[student] > 70:
-#         student_scores[student] = "Acceptable"    
+#         student_scores[student] = "Acceptable"
 #     elif student_scores[student] < 70:
 #         student_scores[student] = "Fail"
 # print(student_scores)
+
+# travel_log = [
+#     {
+#         "country": "France",
+#         "visits": 12,
+#         "cities": [
+#             "Paris",
+#             "lille",
+#             "Di jon",
+#         ],
+#     },
+#     {
+#         "country": "Germany",
+#         "visits": 5,
+#         "cities": [
+#             "Berlin",
+#             "Hamburg",
+#             "Stuttgart",
+#         ],
+#     },
+# ]
+
+
+# def add_new_country(country, visits, cities):
+#     new_dict = {"country":country, "visits":visits, "cities":cities}
+#     travel_log.append(new_dict)
+#     print(travel_log)
+
+
+# add_new_country("Russia", 2, ["Moscow", "Saint petersburg"])
+
+
+# # Returns
+# def formatter(f_name,l_name):
+#     if f_name== "" or l_name == "":
+#         return "You didnt provide valid inputs"
+#     f_name = f_name.title()
+#     l_name = l_name.title()
+#     return f_name +" "+ l_name
+
+# print(formatter(input("What is your first name?"),input("What is your first name?")))
