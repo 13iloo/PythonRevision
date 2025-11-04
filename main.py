@@ -563,59 +563,50 @@ cards= [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 ## Cards are not removed from the deck as they are drawn.
 
 import random
-start_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n' :  ")
-my_cards = []
-computers_cards = []
-com_total = 0
-my_total = 0
 
-if start_play=='y':
-    for card in range(1):
-        computers_cards.append(random.choice(cards))
-    for card in range(2):
-        my_cards.append(random.choice(cards))
-        
-        
-    print(f"""
-┌─────────┐  ┌─────────┐  ┌─────────┐
-│{my_cards[0]:<2}      │  │{my_cards[1]:<2}      │  │░░░░░░░░░│
-│         │  │         │  │░░░░░░░░░│
-│    ♥    │  │    ♠    │  │░░░░░░░░░│
-│         │  │         │  │░░░░░░░░░│
-│      {my_cards[0]:>2}│  │      {my_cards[1]:>2}│  │░░░░░░░░░│
-└─────────┘  └─────────┘  └─────────┘
-""")
+def play_game():
+    start_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n' :  ")
+    my_cards = []
+    computers_cards = []
+    com_total = 0
+    my_total = 0
 
-    print(f"Your cards: {my_cards}")
-
-    print(f"""
-                ┌─────────┐  ┌─────────┐  ┌─────────┐
-                │{computers_cards[0]:<2}      │  │░░░░░░░░░│  │░░░░░░░░░│
-                │         │  │░░░░░░░░░│  │░░░░░░░░░│
-                │    ♥    │  │░░░░░░░░░│  │░░░░░░░░░│
-                │         │  │░░░░░░░░░│  │░░░░░░░░░│
-                │      {computers_cards[0]:>2}│  │░░░░░░░░░│  │░░░░░░░░░│
-                └─────────┘  └─────────┘  └─────────┘
-                """)
-
-    print(f"Computer's first card: {computers_cards}")
-
-    deal_card = input("Type 'y' to get another card, type 'n' to pass: ")
-    if deal_card == "y":
+    if start_play=='y':
         for card in range(1):
             computers_cards.append(random.choice(cards))
-            print(f"Computer's final card: {computers_cards}")
-        for card in computers_cards:
-            com_total += int(card)
-        for card in my_cards:
-            my_total += int(card)
-        print(f"{my_total} vs {com_total}")
-        if my_total>21: 
-            print("bust")
-        elif my_total>com_total:
-            print("Y0u win")
+        for card in range(2):
+            my_cards.append(random.choice(cards))
             
-        
-            # for card in my_cards:
+        print(f"\nYour cards: {my_cards}")
+
+        print(f"Computer's first card: {computers_cards}\n")
+
+        deal_card = input("Type 'y' to get another card, type 'n' to pass: ")
+        if deal_card == "y":
+            for card in range(1):
+                computers_cards.append(random.choice(cards))
+                print(f"\n computer final card: {computers_cards}\n")
+
+            for card in range(1):
+                my_cards.append(random.choice(cards))
+                print(f"\nYour final card: {my_cards}\n")
+
+            for card in computers_cards:
+                com_total += int(card)
+            for card in my_cards:
+                my_total += int(card)
+            print(f"{my_total} vs {com_total}")
+            if my_total>21: 
+                print("Bust! You Lost")
+            elif my_total>com_total:
+                print("Y0u win")
+            elif my_total==com_total:
+                print("draw")
+            elif my_total<com_total:
+                print("You lost")
+                
+            play_game()
+                # for card in my_cards:
 
 
+play_game()
