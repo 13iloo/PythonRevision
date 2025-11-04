@@ -548,3 +548,74 @@
 #     return f_name +" "+ l_name
 
 # print(formatter(input("What is your first name?"),input("What is your first name?")))
+
+
+#capstone project blackjack
+
+## The deck is unlimited in size.
+## There are no jokers.
+## The Jack/Queen/King all count as 10.
+## The the Ace can count as 11 or 1.
+## Use the following list as the deck of cards:
+cards= [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+## The cards in the list have equal probability of beiøg drawn.
+## Cards are not removed from the deck as they are drawn.
+
+import random
+start_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n' :  ")
+my_cards = []
+computers_cards = []
+com_total = 0
+my_total = 0
+
+if start_play=='y':
+    for card in range(1):
+        computers_cards.append(random.choice(cards))
+    for card in range(2):
+        my_cards.append(random.choice(cards))
+        
+        
+    print(f"""
+┌─────────┐  ┌─────────┐  ┌─────────┐
+│{my_cards[0]:<2}      │  │{my_cards[1]:<2}      │  │░░░░░░░░░│
+│         │  │         │  │░░░░░░░░░│
+│    ♥    │  │    ♠    │  │░░░░░░░░░│
+│         │  │         │  │░░░░░░░░░│
+│      {my_cards[0]:>2}│  │      {my_cards[1]:>2}│  │░░░░░░░░░│
+└─────────┘  └─────────┘  └─────────┘
+""")
+
+    print(f"Your cards: {my_cards}")
+
+    print(f"""
+                ┌─────────┐  ┌─────────┐  ┌─────────┐
+                │{computers_cards[0]:<2}      │  │░░░░░░░░░│  │░░░░░░░░░│
+                │         │  │░░░░░░░░░│  │░░░░░░░░░│
+                │    ♥    │  │░░░░░░░░░│  │░░░░░░░░░│
+                │         │  │░░░░░░░░░│  │░░░░░░░░░│
+                │      {computers_cards[0]:>2}│  │░░░░░░░░░│  │░░░░░░░░░│
+                └─────────┘  └─────────┘  └─────────┘
+                """)
+
+    print(f"Computer's first card: {computers_cards}")
+
+    deal_card = input("Type 'y' to get another card, type 'n' to pass: ")
+    if deal_card == "y":
+        for card in range(1):
+            computers_cards.append(random.choice(cards))
+            print(f"Computer's final card: {computers_cards}")
+        for card in computers_cards:
+            com_total += int(card)
+        for card in my_cards:
+            my_total += int(card)
+        print(f"{my_total} vs {com_total}")
+        if my_total>21: 
+            print("bust")
+        elif my_total>com_total:
+            print("Y0u win")
+            
+        
+            # for card in my_cards:
+
+
