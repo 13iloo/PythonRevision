@@ -558,37 +558,41 @@
 ## The the Ace can count as 11 or 1.
 ## Use the following list as the deck of cards:
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
+my_ace = False
+com_ace = False
 ## The cards in the list have equal probability of beiøg drawn.
 ## Cards are not removed from the deck as they are drawn.
 
 import random
 
-deal_card == ""
 
 def play_game():
     start_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n' :  ")
     # ace = False
-    my_cards = [11, 10]
-    computers_cards = [11]
+    my_cards = []
+    computers_cards = []
     com_total = 0
     my_total = 0
 
     if start_play == "y":
-        # for card in range(1):
-        #     computers_cards.append(random.choice(cards))
-        # for card in range(2):
-        #     my_cards.append(random.choice(cards))
+        for card in range(1):
+            computers_cards.append(random.choice(cards))
+        for card in range(2):
+            my_cards.append(random.choice(cards))
 
         print(f"\nYour cards: {my_cards}")
 
         print(f"Computer's first card: {computers_cards}\n")
+        if sum(my_cards) == 21 and len(my_cards)== 2:
+            print("You win !! BLACK JACK !!")
+            play_game()
+
 
         deal_card = input("Type 'y' to get another card, type 'n' to pass: ")
         if deal_card == "y":
-            add_all(my_cards, computers_cards)
+            add_all(my_cards, computers_cards,deal_card,my_ace,com_ace)
         else:
-            add_all(my_cards, computers_cards)
+            add_all(my_cards, computers_cards,deal_card,my_ace,com_ace)
 
 
 def check(my_total, com_total):
@@ -601,7 +605,7 @@ def check(my_total, com_total):
     elif my_total < com_total:
         print("You lost")
 
-def add_all(my_cards, computers_cards):
+def add_all(my_cards, computers_cards,deal_card,my_ace,com_ace):
     com_total = 0
     my_total = 0
     if deal_card == "y":
@@ -612,7 +616,10 @@ def add_all(my_cards, computers_cards):
         for card in range(1):
             my_cards.append(random.choice(cards))
             print(f"\nYour final card: {my_cards}\n")
-
+    else:
+        for card in range(1):
+            computers_cards.append(random.choice(cards))
+            print(f"\n computer final card: {computers_cards}\n")
 
     for card in computers_cards:
         if card == 11:
@@ -623,6 +630,8 @@ def add_all(my_cards, computers_cards):
             my_ace = True
         my_total += int(card)
     print(f"{my_total} vs {com_total}")
+
+
     if com_total > 21 and com_ace == True:
         com_ace -= 10
     if my_total > 21 and my_ace == True:
