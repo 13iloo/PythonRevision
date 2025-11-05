@@ -550,64 +550,86 @@
 # print(formatter(input("What is your first name?"),input("What is your first name?")))
 
 
-#capstone project blackjack
+# capstone project blackjack
 
 ## The deck is unlimited in size.
 ## There are no jokers.
 ## The Jack/Queen/King all count as 10.
 ## The the Ace can count as 11 or 1.
 ## Use the following list as the deck of cards:
-cards= [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 ## The cards in the list have equal probability of beiøg drawn.
 ## Cards are not removed from the deck as they are drawn.
 
 import random
 
+deal_card == ""
+
 def play_game():
     start_play = input("Do you want to play a game of Blackjack? Type 'y' or 'n' :  ")
-    my_cards = []
-    computers_cards = []
+    # ace = False
+    my_cards = [11, 10]
+    computers_cards = [11]
     com_total = 0
     my_total = 0
 
-    if start_play=='y':
-        for card in range(1):
-            computers_cards.append(random.choice(cards))
-        for card in range(2):
-            my_cards.append(random.choice(cards))
-            
+    if start_play == "y":
+        # for card in range(1):
+        #     computers_cards.append(random.choice(cards))
+        # for card in range(2):
+        #     my_cards.append(random.choice(cards))
+
         print(f"\nYour cards: {my_cards}")
 
         print(f"Computer's first card: {computers_cards}\n")
 
         deal_card = input("Type 'y' to get another card, type 'n' to pass: ")
         if deal_card == "y":
-            for card in range(1):
-                computers_cards.append(random.choice(cards))
-                print(f"\n computer final card: {computers_cards}\n")
-
-            for card in range(1):
-                my_cards.append(random.choice(cards))
-                print(f"\nYour final card: {my_cards}\n")
-
-            for card in computers_cards:
-                com_total += int(card)
-            for card in my_cards:
-                my_total += int(card)
-            print(f"{my_total} vs {com_total}")
-            if my_total>21: 
-                print("Bust! You Lost")
-            elif my_total>com_total:
-                print("Y0u win")
-            elif my_total==com_total:
-                print("draw")
-            elif my_total<com_total:
-                print("You lost")
-                
-            play_game()
-                # for card in my_cards:
+            add_all(my_cards, computers_cards)
+        else:
+            add_all(my_cards, computers_cards)
 
 
+def check(my_total, com_total):
+    if my_total > 21:
+        print("Bust! You Lost")
+    elif my_total > com_total:
+        print("Y0u win")
+    elif my_total == com_total:
+        print("draw")
+    elif my_total < com_total:
+        print("You lost")
+
+def add_all(my_cards, computers_cards):
+    com_total = 0
+    my_total = 0
+    if deal_card == "y":
+        for card in range(1):
+            computers_cards.append(random.choice(cards))
+            print(f"\n computer final card: {computers_cards}\n")
+
+        for card in range(1):
+            my_cards.append(random.choice(cards))
+            print(f"\nYour final card: {my_cards}\n")
+
+
+    for card in computers_cards:
+        if card == 11:
+            com_ace = True
+        com_total += int(card)
+    for card in my_cards:
+        if card == 11:
+            my_ace = True
+        my_total += int(card)
+    print(f"{my_total} vs {com_total}")
+    if com_total > 21 and com_ace == True:
+        com_ace -= 10
+    if my_total > 21 and my_ace == True:
+        my_total -= 10
+        check(my_total, com_total)
+    else:
+        check(my_total, com_total)
+    play_game()
 
 play_game()
