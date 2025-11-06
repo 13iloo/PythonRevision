@@ -672,15 +672,16 @@ print(
 Welcome to the Number Guessing Game !
 I'm thinking of a number between 1 and IØØ.""" 
 )
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
+
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-
-
 if difficulty == "easy":
     print("You have 10 attempts remaining to guess the number.")
-    trials_left = 10
+    trials_left = EASY_LEVEL_TURNS
 else:
     print("You have 5 attempts remaining to guess the number.")
-    trials_left = 5
+    trials_left = HARD_LEVEL_TURNS
 
 print(trials_left)
 
