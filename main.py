@@ -659,52 +659,111 @@
 
 
 
-import random
-print(
-""" 
+# import random
+# print(
+# """ 
                                                                                                                          
- ,----.                                      ,--.  ,--.                ,--.  ,--.                  ,--.                  
-'  .-./   ,--.,--. ,---.  ,---.  ,---.     ,-'  '-.|  ,---.  ,---.     |  ,'.|  |,--.,--.,--,--,--.|  |-.  ,---. ,--.--. 
-|  | .---.|  ||  || .-. :(  .-' (  .-'     '-.  .-'|  .-.  || .-. :    |  |' '  ||  ||  ||        || .-. '| .-. :|  .--' 
-'  '--'  |'  ''  '\   --..-'  `).-'  `)      |  |  |  | |  |\   --.    |  | `   |'  ''  '|  |  |  || `-' |\   --.|  |    
- `------'  `----'  `----'`----' `----'       `--'  `--' `--' `----'    `--'  `--' `----' `--`--`--' `---'  `----'`--'    
+#  ,----.                                      ,--.  ,--.                ,--.  ,--.                  ,--.                  
+# '  .-./   ,--.,--. ,---.  ,---.  ,---.     ,-'  '-.|  ,---.  ,---.     |  ,'.|  |,--.,--.,--,--,--.|  |-.  ,---. ,--.--. 
+# |  | .---.|  ||  || .-. :(  .-' (  .-'     '-.  .-'|  .-.  || .-. :    |  |' '  ||  ||  ||        || .-. '| .-. :|  .--' 
+# '  '--'  |'  ''  '\   --..-'  `).-'  `)      |  |  |  | |  |\   --.    |  | `   |'  ''  '|  |  |  || `-' |\   --.|  |    
+#  `------'  `----'  `----'`----' `----'       `--'  `--' `--' `----'    `--'  `--' `----' `--`--`--' `---'  `----'`--'    
                                                                                                                           
-Welcome to the Number Guessing Game !
-I'm thinking of a number between 1 and IØØ.""" 
-)
-EASY_LEVEL_TURNS = 10
-HARD_LEVEL_TURNS = 5
+# Welcome to the Number Guessing Game !
+# I'm thinking of a number between 1 and IØØ.""" 
+# )
+# EASY_LEVEL_TURNS = 10
+# HARD_LEVEL_TURNS = 5
 
-difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-if difficulty == "easy":
-    print("You have 10 attempts remaining to guess the number.")
-    trials_left = EASY_LEVEL_TURNS
-else:
-    print("You have 5 attempts remaining to guess the number.")
-    trials_left = HARD_LEVEL_TURNS
+# difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+# if difficulty == "easy":
+#     print("You have 10 attempts remaining to guess the number.")
+#     trials_left = EASY_LEVEL_TURNS
+# else:
+#     print("You have 5 attempts remaining to guess the number.")
+#     trials_left = HARD_LEVEL_TURNS
 
-print(trials_left)
+# print(trials_left)
 
-generated_num  = random.randint(0,100)
+# generated_num  = random.randint(1,100)
 
-def check(trials_left):
-    guessed_num = int(input("Make a guess: "))
+# def check(trials_left):
+#     guessed_num = int(input("Make a guess: "))
 
-    if guessed_num == generated_num:
-        print("You win")
-        return
-    elif guessed_num < generated_num:
-        print("too low")
-    elif guessed_num > generated_num:
-        print("too high")
-    trials_left = trials_left - 1
-    if trials_left <1:
-        print(f"You have lost")
-        return
-    print(f"You have {trials_left} attempts remaining to guess the number.")
-    check(trials_left)
+#     if guessed_num == generated_num:
+#         print("You win")
+#         return
+#     elif guessed_num < generated_num:
+#         print("too low")
+#     elif guessed_num > generated_num:
+#         print("too high")
+#     trials_left = trials_left - 1
+#     if trials_left <1:
+#         print(f"You have lost")
+#         return
+#     print(f"You have {trials_left} attempts remaining to guess the number.")
+#     check(trials_left)
 
-check(trials_left)
+# check(trials_left)
+
+#debug exercises
+
+# from random import randint
+# dice_imgs = ["🙅‍♂️","💪","💯","😎","👀","🌶️",]
+# dice_num= randint(0, 5)
+# print(dice_num)
+# print(dice_imgs[dice_num] )
 
 
+#higher or lower
+import random
+from data import CELEBRITY_DATA
+from ascii import higher,vs
+import os
 
+
+def gen_num():
+    return random.randint(0,19)
+
+rand_cel_A = CELEBRITY_DATA[gen_num()]
+rand_cel_B = CELEBRITY_DATA[gen_num()]
+while rand_cel_B["name"] == rand_cel_A["name"]:
+    rand_cel_B = CELEBRITY_DATA[gen_num()]
+
+
+def compare(rand_cel_A,rand_cel_B):
+    in_play = True
+    acc_points = 0
+
+    while in_play==True:
+        print(higher)
+        print(f" Compare A: {(rand_cel_A['name'])}, {(rand_cel_A['description'])} ")
+        print(vs)
+        print(f" Against B: {rand_cel_B['name']}, {(rand_cel_B['description'])} \n")
+        answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+        if rand_cel_A["followers_M"] > rand_cel_B["followers_M"] and answer=="a" :
+            acc_points += 1
+            print("you are correct")
+            print(f"Accumulated Points: {acc_points}")
+            rand_cel_B = CELEBRITY_DATA[gen_num()]
+            while rand_cel_B["name"] == rand_cel_A["name"]:
+                rand_cel_B = CELEBRITY_DATA[gen_num()]
+
+            os.system("cls")
+
+        elif rand_cel_A["followers_M"] < rand_cel_B["followers_M"] and answer=="b" :
+            acc_points += 1
+            print("you are correct")
+            print(f"Accumulated Points: {acc_points}")
+            rand_cel_A = rand_cel_B
+            rand_cel_B = CELEBRITY_DATA[gen_num()]
+            while rand_cel_B["name"] == rand_cel_A["name"]:
+                rand_cel_B = CELEBRITY_DATA[gen_num()]
+
+            os.system("cls")
+        else:
+            in_play = False
+            print(f"Sorry, that's wrong. Final score: {acc_points}")
+
+compare(rand_cel_A,rand_cel_B)
