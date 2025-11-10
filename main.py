@@ -716,54 +716,108 @@
 
 
 #higher or lower
-import random
-from data import CELEBRITY_DATA
-from ascii import higher,vs
-import os
+# import random
+# from data import CELEBRITY_DATA
+# from ascii import higher,vs
+# import os
+#
+#
+# def gen_num():
+#     return random.randint(0,19)
+#
+# rand_cel_A = CELEBRITY_DATA[gen_num()]
+# rand_cel_B = CELEBRITY_DATA[gen_num()]
+# while rand_cel_B["name"] == rand_cel_A["name"]:
+#     rand_cel_B = CELEBRITY_DATA[gen_num()]
+#
+#
+# def compare(rand_cel_A,rand_cel_B):
+#     in_play = True
+#     acc_points = 0
+#
+#     while in_play==True:
+#         print(higher)
+#         print(f" Compare A: {(rand_cel_A['name'])}, {(rand_cel_A['description'])} ")
+#         print(vs)
+#         print(f" Against B: {rand_cel_B['name']}, {(rand_cel_B['description'])} \n")
+#         answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+#
+#         if rand_cel_A["followers_M"] > rand_cel_B["followers_M"] and answer=="a" :
+#             acc_points += 1
+#             print("you are correct")
+#             print(f"Accumulated Points: {acc_points}")
+#             rand_cel_B = CELEBRITY_DATA[gen_num()]
+#             while rand_cel_B["name"] == rand_cel_A["name"]:
+#                 rand_cel_B = CELEBRITY_DATA[gen_num()]
+#
+#             os.system("cls")
+#
+#         elif rand_cel_A["followers_M"] < rand_cel_B["followers_M"] and answer=="b" :
+#             acc_points += 1
+#             print("you are correct")
+#             print(f"Accumulated Points: {acc_points}")
+#             rand_cel_A = rand_cel_B
+#             rand_cel_B = CELEBRITY_DATA[gen_num()]
+#             while rand_cel_B["name"] == rand_cel_A["name"]:
+#                 rand_cel_B = CELEBRITY_DATA[gen_num()]
+#
+#             os.system("cls")
+#         else:
+#             in_play = False
+#             print(f"Sorry, that's wrong. Final score: {acc_points}")
+#
+# compare(rand_cel_A,rand_cel_B)
 
 
-def gen_num():
-    return random.randint(0,19)
-
-rand_cel_A = CELEBRITY_DATA[gen_num()]
-rand_cel_B = CELEBRITY_DATA[gen_num()]
-while rand_cel_B["name"] == rand_cel_A["name"]:
-    rand_cel_B = CELEBRITY_DATA[gen_num()]
+from coffee import coffee_menu,resources
 
 
-def compare(rand_cel_A,rand_cel_B):
-    in_play = True
-    acc_points = 0
+def change(request):
+    print("Please insert coins.")
+    quarters = int(input("How many quarters? :"))
+    dimes = int(input("How many dimes? :"))
+    nickles = int(input("How many nickles? :"))
+    pennies = int(input("How many pennies? :"))
+    sum = quarters * 0.25 + dimes * 0.10 + nickles * 0.05 + pennies * 0.01
+    print(sum)
+    if sum < coffee_menu[f"{request}"]["price"]:
+        print("Sorry that's not enough money. Money refunded.")
+    else:
+        print(f"here is your change: {round((sum - coffee_menu[f"{request}"]["price"]),2)}")
+        print(f"here is your {request} enjoy!!")
 
-    while in_play==True:
-        print(higher)
-        print(f" Compare A: {(rand_cel_A['name'])}, {(rand_cel_A['description'])} ")
-        print(vs)
-        print(f" Against B: {rand_cel_B['name']}, {(rand_cel_B['description'])} \n")
-        answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+def reduce(request):
+    resources["water"] = resources["water"] - coffee_menu[f"{request}"]["water"]
+    resources["milk"] = resources["milk"] - coffee_menu[f"{request}"]["milk"]
+    resources["coffee"] = resources["coffee"] - coffee_menu[f"{request}"]["coffee"]
+    resources["money"] = resources["money"] + coffee_menu[f"{request}"]["price"]
+    # print(f"remaining water: {resources["water"]}")
+    # print(f"remaining milk: {resources["milk"]}")
+    # print(f"remaining coffee: {resources["coffee"]}")
 
-        if rand_cel_A["followers_M"] > rand_cel_B["followers_M"] and answer=="a" :
-            acc_points += 1
-            print("you are correct")
-            print(f"Accumulated Points: {acc_points}")
-            rand_cel_B = CELEBRITY_DATA[gen_num()]
-            while rand_cel_B["name"] == rand_cel_A["name"]:
-                rand_cel_B = CELEBRITY_DATA[gen_num()]
+def checker(request):
+    if (resources["water"] < coffee_menu[f"{request}"]["water"]) or (resources["milk"] < resources["milk"] - coffee_menu[f"{request}"]["milk"]) or ( resources["coffee"] < resources["coffee"] - coffee_menu[f"{request}"]["coffee"]):
+        print(f"Sorry that's not enough {resources}. Money refunded.")
+        return
 
-            os.system("cls")
 
-        elif rand_cel_A["followers_M"] < rand_cel_B["followers_M"] and answer=="b" :
-            acc_points += 1
-            print("you are correct")
-            print(f"Accumulated Points: {acc_points}")
-            rand_cel_A = rand_cel_B
-            rand_cel_B = CELEBRITY_DATA[gen_num()]
-            while rand_cel_B["name"] == rand_cel_A["name"]:
-                rand_cel_B = CELEBRITY_DATA[gen_num()]
 
-            os.system("cls")
-        else:
-            in_play = False
-            print(f"Sorry, that's wrong. Final score: {acc_points}")
+def order():
+    continue_order = True
 
-compare(rand_cel_A,rand_cel_B)
+    while continue_order:
+        request  = input("What would you like? (espresso/latte/cappuccino): ")
+        print(request)
+        if request == "report":
+            print(f"Water: {resources["water"]}ml\nMilk: {resources["milk"] }ml\nCoffee: {resources["coffee"]}g\nMoney: {resources["money"]}")
+        elif request == "latte" or request == "cappuccino" or request == "espresso":
+            checker(request)
+            change(request)
+            reduce(request)
+        elif request == "off" :
+            continue_order = False
+            # break
+        # else:
+        #     break
+
+order()
