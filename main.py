@@ -797,8 +797,10 @@ def reduce(request):
 
 def checker(request):
     if (resources["water"] < coffee_menu[f"{request}"]["water"]) or (resources["milk"] < resources["milk"] - coffee_menu[f"{request}"]["milk"]) or ( resources["coffee"] < resources["coffee"] - coffee_menu[f"{request}"]["coffee"]):
-        print(f"Sorry that's not enough {resources}. Money refunded.")
-        return
+        print(f"Sorry that's not enough {"resources"}. Money refunded.")
+        return False
+    else:
+        return True
 
 
 
@@ -811,9 +813,9 @@ def order():
         if request == "report":
             print(f"Water: {resources["water"]}ml\nMilk: {resources["milk"] }ml\nCoffee: {resources["coffee"]}g\nMoney: {resources["money"]}")
         elif request == "latte" or request == "cappuccino" or request == "espresso":
-            checker(request)
-            change(request)
-            reduce(request)
+            if checker(request):
+                change(request)
+                reduce(request)
         elif request == "off" :
             continue_order = False
             # break
